@@ -1,30 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Pong from './Pong';
 
-function SimpleGame() {
-  const [score, setScore] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-
-  useEffect(() => {
-    let interval;
-    if (isRunning) {
-      interval = setInterval(() => {
-        setScore((prevScore) => prevScore + 1);
-      }, 1000);
-    } else if (!isRunning && score !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isRunning, score]);
-
+function App() {
   return (
-    <div>
-      <h1>Score: {score}</h1>
-      <button onClick={() => setIsRunning(!isRunning)}>
-        {isRunning ? 'Pause' : 'Start'}
-      </button>
-      <button onClick={() => setScore(0)}>Reset</button>
+    <div className="App">
+      <h1>React Pong Game</h1>
+      <Pong />
     </div>
   );
 }
 
-export default SimpleGame;
+export default App;
