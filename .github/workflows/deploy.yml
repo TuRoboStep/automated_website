@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Navigate to subfolder
-        run: cd my-react-app
-
       - name: Install dependencies
         working-directory: my-react-app
         run: npm install
