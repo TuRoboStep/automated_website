@@ -18,13 +18,15 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: cd into correct app
+      - name: Navigate to subfolder
         run: cd my-react-app
 
+      - name: Install dependencies
+        working-directory: my-react-app
+        run: npm install
+
       - name: Build the app
+        working-directory: my-react-app
         run: npm run build
 
       - name: Deploy to GitHub Pages
