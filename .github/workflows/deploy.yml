@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: cd into correct app
+        run: cd my-react-app
+
       - name: Build the app
         run: npm run build
 
